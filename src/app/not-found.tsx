@@ -1,5 +1,3 @@
-// File: pages/404.tsx or pages/404.js
-
 export default function NotFound() {
     return (
         <div>

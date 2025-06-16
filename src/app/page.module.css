@@ -113,6 +113,15 @@
 
   .footerLeft {
     width: 100%;
+    text-align: left;
+  }
+
+  .footerCenter {
+    text-align: left;
+  }
+
+  .footerRight {
+    text-align: left;
   }
 }
 
@@ -126,6 +135,14 @@
   }
   .footerLeft {
     width: 100%;
+    text-align: left;
+  }
+
+  .footerCenter {
+    text-align: left;
+  }
+  .footerRight {
+    text-align: left;
   }
 }
 
