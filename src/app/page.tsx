@@ -1,95 +1,69 @@
-import Image from "next/image";
+
+
+"use client";
 import styles from "./page.module.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      {/* Background Slider */}
+      <div className={styles.sliderContainer}>
+        <Swiper
+          spaceBetween={30}
+          effect="fade"
+          navigation={false}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false
+          }}
+          modules={[EffectFade, Navigation, Pagination, Autoplay]}
+          className={styles.mySwiper}
+        >
+          <SwiperSlide>
+            <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="Nature 1" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Nature 2" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="Nature 3" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="Nature 4" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      {/* Overlay Content */}
+      <div className={styles.overlay}>
+        <main className={styles.mainContent}>
+        </main>
+
+        <footer className={styles.footer}>
+          <div className={styles.footerLeft}>
+            Empathy-driven brands that evolve with you
+          </div>
+
+          <div className={styles.footerCenter}>
+            <div>Full website</div>
+            <div>Coming soon</div>
+          </div>
+
+          <div className={styles.footerRight}>
+            <div className={styles.companyName}>The SOS Department</div>
+            <div className={styles.email}>hello@sosdept.com</div>
+            <div className={styles.capabilities}>Capabilities Deck ↗</div>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
